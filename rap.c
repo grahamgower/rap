@@ -239,7 +239,7 @@ main(int argc, char **argv)
 		}
 	}
 
-	if (argc - optind != 1 || opt.n_enzymes == 0) {
+	if (argc - optind != 1 || opt.n_enzymes < 2) {
 		usage(argv[0], &opt);
 		return -1;
 	}
