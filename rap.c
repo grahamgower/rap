@@ -62,6 +62,15 @@ restrict_sites(opt_t *opt)
 				if (strncasecmp(e->seq, ks->seq.s+i, e->len))
 					continue;
 
+
+				/*
+				 * RAD-seq typically requires different
+				 * restriction enzymes to have cut at either
+				 * end of the molecule in order that the
+				 * molecule be amplified.  So we mandate that
+				 * the current enzyme match is different to
+				 * the previous match.
+				 */
 				if (e_last && e_last != e) {
 					int pos5 = i_last + e_last->pos0;
 					int pos3 = i + e->pos0;
